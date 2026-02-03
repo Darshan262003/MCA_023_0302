@@ -1,0 +1,34 @@
+pipeline
+{
+  agent any
+  environment{
+    DOCKERHUB_id=credentials('dockerid')
+    IMAGE_NAME="darshu262003/MCA_023_0302"
+  }
+  stages{
+    stage('checkout'){
+    steps{
+    
+      git url:"",
+        branch:"main"
+    }
+    }
+    stage('build'){
+      steps{
+        script{
+          dockerImage=docker.build("${IMAGE_NAME}:latest")
+        }
+      }
+    }
+    stage('push')
+    {
+      steps{
+        script{
+          docker.withRegistry("https://index.docker.io/v1/",'dockerid'){
+            dockerImage.push()
+          }
+        }
+      }
+    }
+  }
+}
