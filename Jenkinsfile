@@ -9,7 +9,7 @@ pipeline
     stage('checkout'){
     steps{
     
-      git url:"",
+      git url:"https://github.com/Darshan262003/MCA_023_0302.git",
         branch:"main"
     }
     }
