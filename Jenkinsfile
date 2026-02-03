@@ -3,7 +3,7 @@ pipeline
   agent any
   environment{
     DOCKERHUB_id=credentials('dockerid')
-    IMAGE_NAME="darshu262003/MCA_023_0302"
+    IMAGE_NAME="darshu262003/mca_023_0302"
   }
   stages{
     stage('checkout'){
